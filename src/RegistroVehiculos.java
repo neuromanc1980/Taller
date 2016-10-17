@@ -19,17 +19,20 @@ public class RegistroVehiculos {
     }
 
     public void eliminarVehiculo(String matricula){
-
+    coches.removeIf(coche -> coche.getMatricula().equalsIgnoreCase(matricula));
     }
 
     public Optional<Coche>  obtenerVehiculoPrecioMax(){
-
+        //comparador de coches en funcion del coste. stream convierte estructura de datos en flujo de objetos
+        return coches.stream().max(Comparator.comparing(Coche::getCoste));
     }
 
     public List<Coche>  obtenerVehiculosMarca(String marca){
-
+        return coches.stream().filter(coche -> coche.getMarca().equalsIgnoreCase(marca)).collect(Collectors.toList());
     }
 
     public List<Coche>  obtenerTodos() {
+        List<Coche> cocheList = new ArrayList<>(coches);
+        return cocheList;
     }
 }
