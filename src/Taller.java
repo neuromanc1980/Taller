@@ -12,6 +12,7 @@ public class Taller {
     }
 
     public Coche obtenerCoche(Persona persona){
+
         return reparaciones.get(persona);
     }
 
@@ -21,6 +22,7 @@ public class Taller {
     }
 
     public Collection<Coche> obtenerCochesList(){
+
         return reparaciones.values();
     }
 

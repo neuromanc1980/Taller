@@ -28,7 +28,7 @@ public class MainTaller {
 
         taller.registrarReparacion(anna, Austin);
 
-        System.out.println(Taller.obtenerCoche(jose));
+        System.out.println(taller.obtenerCoche(jose));
 
 // debes comprobar que las personas aparecen ordenadas según el criterio especificado en el comparador
 

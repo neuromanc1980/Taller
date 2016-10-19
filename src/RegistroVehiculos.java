@@ -7,6 +7,7 @@ public class RegistroVehiculos {
     private Set<Coche> coches = new HashSet<>();
 
     public void registrarVehiculo(Coche coche){
+        coches.add(coche);
 
     }
 
@@ -15,7 +16,7 @@ public class RegistroVehiculos {
 // Lo puedes omitir si trabajas con Java 7
 
     public Optional<Coche> obtenerVehiculo(String matricula){
-
+        return coches.parallelStream().filter(coche -> coche.getMatricula().equals(matricula)).findFirst();
     }
 
     public void eliminarVehiculo(String matricula){
@@ -24,7 +25,7 @@ public class RegistroVehiculos {
 
     public Optional<Coche>  obtenerVehiculoPrecioMax(){
         //comparador de coches en funcion del coste. stream convierte estructura de datos en flujo de objetos
-        return coches.stream().max(Comparator.comparing(Coche::getCoste));
+        return coches.stream().max(Comparator.comparing(Coche::getPrecio));
     }
 
     public List<Coche>  obtenerVehiculosMarca(String marca){
